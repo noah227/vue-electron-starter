@@ -1,18 +1,20 @@
 <template>
     <div class="home">
         <img alt="Vue logo" src="../assets/logo.png">
-        <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+        <img src="./1350979-4M.jpeg" style="width: 220px" title="默认111" alt="">
+        <img :src="ii" style="width: 128px" alt="">
+        <button @click="handleClick">Say Hello</button>
     </div>
 </template>
 
-<script lang="ts">
-import {defineComponent} from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+<script lang="ts" setup>
+import {runContextMethod} from "@/utils";
 
-export default defineComponent({
-    name: 'HomeView',
-    components: {
-        HelloWorld,
-    },
-});
+const ii = require("./1350979-4M.jpeg")
+
+const handleClick = () => {
+    runContextMethod("tell", 1, 2, 3).then(res => {
+        alert(`Your Platform is ${res} !`)
+    })
+}
 </script>
